@@ -1,0 +1,20 @@
+html, body {
+    padding: 0;
+    font-size: 16px;
+}
+
+#slider {
+    background: url(img/bg.png);
+    width: 600px;
+    height: 400px;
+    animation: slide 10s linear infinite;
+}
+
+@keyframes slide {
+    0% {
+        background-position-x: 0;
+    }
+    100% {
+        background-position-x: -968px;
+    }
+}
