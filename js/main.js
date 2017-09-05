@@ -98,6 +98,26 @@ function createPipe() {
     pipeDelay = 0;
 }
 
+function rotatePoint(x, y, pX, pY, angle) {
+    var s = Math.sin(angle);
+    var c = Math.cos(angle);
+    x -= pX;
+    y -= pY;
+    var xNew = x * c - y * s;
+    var yNew = x * s + y * c;
+    return {x: xNew + pX, y: yNew + pY};
+}
+
+function getCoords(x, y, w, h, angle) {
+    if (angle > 0) {
+
+    } else {
+
+    }
+    return [{x: x, y: y}, {x: x + w - 1, y: y},
+            {x: x + w - 1, y: y + h - 1}, {x: x, y: y + h - 1}];
+}
+
 function overlap(x, y, w, h, x2, y2, w2, h2) {
     return x < x2 + w2 && x + w > x2 && y < y2 + h2 && y + h > y2;
 }
@@ -108,7 +128,7 @@ function gameLoop() {
     // Check if we overlap with a pipe.
     for (var i = 0; i < pipes.length; i++) {
         var p = pipes[i];
-        
+
         // TODO: check polygons
         // https://stackoverflow.com/questions/10962379/how-to-check-intersection-between-2-rotated-rectangles
         // and rotate rectangle points:
